@@ -1,14 +1,17 @@
-import arrays.Arrays;
+import queues.ArrayQueue;
 import stack.Stack;
+
+import java.util.Arrays;
 
 public class Main {
     
     public static void main(String[] args) {
-        Stack stack = new Stack();
-        stack.push(3);
-        stack.push(5);
-        stack.push(8);
-        System.out.println(stack.isEmpty());
+        ArrayQueue aq = new ArrayQueue();
+        aq.enqueue(22);
+        aq.enqueue(34);
+        aq.enqueue(45);
+        aq.dequeue();
+        System.out.println(aq);
 
 
     }

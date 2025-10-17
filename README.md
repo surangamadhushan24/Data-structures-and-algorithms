@@ -93,9 +93,7 @@ Guidelines:
 - Prefer clear variable names and short helper methods.
 - Add comments where intent isn't obvious.
 
-## License
 
-This repository does not include a license file. If you intend to reuse or share the code publicly, consider adding an open-source license (for example, MIT or Apache-2.0). If you want, I can add a simple MIT license file for you.
 
 ## Notes
 

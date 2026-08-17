@@ -6,7 +6,7 @@ public class Arrays {
 
 
     public Arrays(int length){
-         this.arr = new int[3];
+         this.arr = new int[length];
 
     }
 

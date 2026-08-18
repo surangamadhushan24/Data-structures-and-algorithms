@@ -1,6 +1,6 @@
 package trees.binarytree;
 
-//            4
+//            4             left<root<right
 //         3     8
 //        1     7  10
 

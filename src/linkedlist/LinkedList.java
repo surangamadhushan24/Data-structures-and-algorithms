@@ -11,6 +11,7 @@ public class LinkedList {
     private boolean isEmpty(){
         return first == null;
     }
+
     public void addFirst(int value){
 
         var node = new Node();

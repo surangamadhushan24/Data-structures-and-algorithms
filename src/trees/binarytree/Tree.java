@@ -43,9 +43,27 @@ public class Tree { // root insert(value) find(value):boolean
 
 
     }
-//            4             left<root<right 4 3 1 8 7 10
+//            4
+//           / \           left<root<right 4 3 1 8 7 10
 //         3     8
-//        1     7  10
+//        /     / \
+//       1    7   10
+//                  \
+//                   12         height = 1 + max(height(left),height(right))
+
+    public  int height(){
+        return height(root);
+    }
+
+    private int height(Node root){
+        if(root == null){
+            return -1;
+        }
+        if(root.leftchild ==null && root.rightchild ==null){
+            return  0;
+        }
+        return 1 + Math.max(height(root.leftchild),height(root.rightchild));
+    }
 
     private void traversePreOrder(Node root){
         if(root == null){

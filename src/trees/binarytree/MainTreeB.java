@@ -13,9 +13,19 @@ public class MainTreeB {
         tree.insert(3);
         tree.insert(1);
         tree.insert(10);
-        System.out.println(tree.find(1));
-//        tree.traverseInOrder();
+        tree.insert(12);
+//        System.out.println(tree.find(1));
+        tree.traverseInOrder();
+        System.out.println("================================inorder==================================================");
+
+        tree.traversePreOrder();
+        System.out.println("==================================preorder==============================================");
+
         tree.traversePostOrder();
-        System.out.println("done");
+        System.out.println("=====================================postorder=============================================");
+
+        System.out.println(tree.height());
     }
+
+
 }

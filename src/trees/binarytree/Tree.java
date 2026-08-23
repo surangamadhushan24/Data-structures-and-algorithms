@@ -4,8 +4,6 @@ public class Tree { // root insert(value) find(value):boolean
 
     Node root;
 
-
-
     private class Node { //value // leftchild //rightchild
         int value;
         Node leftchild;
@@ -65,12 +63,27 @@ public class Tree { // root insert(value) find(value):boolean
         return 1 + Math.max(height(root.leftchild),height(root.rightchild));
     }
 
-    private boolean isLeaf(Node node){
-        return node.leftchild ==null && node.rightchild ==null;
-
+    public int min(){
+       return min(root);
     }
 
+    private  int min(Node root){
 
+        if (root == null) {
+            return Integer.MAX_VALUE;
+        }
+
+
+
+        var leftMin = min(root.leftchild);
+        var rightMin = min(root.rightchild);
+        return  Math.min(Math.min(leftMin,rightMin),root.value);
+    }
+
+    private boolean isLeaf(Node node){
+        return node.leftchild == null && node.rightchild == null;
+
+    }
 
     private void traversePreOrder(Node root){
         if(root == null){

@@ -69,15 +69,32 @@ public class Tree { // root insert(value) find(value):boolean
 
     private  int min(Node root){
 
-        if (root == null) {
+        if (root == null)
             return Integer.MAX_VALUE;
-        }
-
 
 
         var leftMin = min(root.leftchild);
         var rightMin = min(root.rightchild);
         return  Math.min(Math.min(leftMin,rightMin),root.value);
+    }
+
+    public int minBST(){
+        return minBST(root);
+    }
+
+    private int minBST(Node root){
+
+        if(root==null)
+            throw new IllegalArgumentException("Tree is empty");
+
+        Node current = root;
+        while (current.leftchild!=null){
+            current = current.leftchild;
+        }
+
+        return current.value;
+
+
     }
 
     private boolean isLeaf(Node node){

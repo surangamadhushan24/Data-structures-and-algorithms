@@ -15,7 +15,7 @@ public class MainTreeB {
         tree.insert(10);
 
 
-        System.out.println(tree.min());
+        System.out.println(tree.minBST());
     }
 
 

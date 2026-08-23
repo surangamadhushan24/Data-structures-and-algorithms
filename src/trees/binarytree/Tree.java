@@ -164,6 +164,28 @@ public class Tree { // root insert(value) find(value):boolean
                 return true;
             }
         return false;
-    }
+
+   }
+
+   public boolean equals(Tree other){
+        return equals(other.root,root);
+   }
+
+   private boolean equals(Node first,Node second){
+
+        if(first == null && second ==null){
+            return true;
+        }
+
+       if(first != null && second !=null){
+           return first.value == second.value &&
+                   equals(first.leftchild ,second.leftchild) &&
+                   equals(first.rightchild ,second.rightchild);
+
+       }
+
+       return false;
+
+   }
 
 }

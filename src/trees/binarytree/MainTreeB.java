@@ -14,8 +14,17 @@ public class MainTreeB {
         tree.insert(1);
         tree.insert(10);
 
+        Tree tree1 = new Tree();
+        tree1.insert(4);
+        tree1.insert(8);
+        tree1.insert(7);
+        tree1.insert(3);
+        tree1.insert(1);
+        tree1.insert(10);
 
-        System.out.println(tree.minBST());
+
+        System.out.println(tree1.minBST());
+        System.out.println(tree.equals(tree1));
     }
 
 

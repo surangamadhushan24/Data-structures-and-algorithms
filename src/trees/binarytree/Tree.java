@@ -59,11 +59,18 @@ public class Tree { // root insert(value) find(value):boolean
         if(root == null){
             return -1;
         }
-        if(root.leftchild ==null && root.rightchild ==null){
+        if(isLeaf(root)){
             return  0;
         }
         return 1 + Math.max(height(root.leftchild),height(root.rightchild));
     }
+
+    private boolean isLeaf(Node node){
+        return node.leftchild ==null && node.rightchild ==null;
+
+    }
+
+
 
     private void traversePreOrder(Node root){
         if(root == null){

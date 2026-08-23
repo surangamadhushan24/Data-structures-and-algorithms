@@ -168,6 +168,9 @@ public class Tree { // root insert(value) find(value):boolean
    }
 
    public boolean equals(Tree other){
+        if(other ==null)
+            return false;
+
         return equals(other.root,root);
    }
 

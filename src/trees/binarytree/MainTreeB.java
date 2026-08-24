@@ -25,6 +25,7 @@ public class MainTreeB {
 
         System.out.println(tree1.minBST());
         System.out.println(tree.equals(null));
+        System.out.println(tree.isBinarySearchTree());
     }
 
 

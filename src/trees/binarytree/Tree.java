@@ -1,10 +1,10 @@
 package trees.binarytree;
 
-public class Tree { // root insert(value) find(value):boolean
+public class Tree {
 
     Node root;
 
-    private class Node { //value // leftchild //rightchild
+    private class Node {
         int value;
         Node leftchild;
         Node rightchild;
@@ -41,13 +41,30 @@ public class Tree { // root insert(value) find(value):boolean
 
 
     }
+    public boolean isBinarySearchTree(){
+        return isBinarySearchTree(root,Integer.MIN_VALUE,Integer.MAX_VALUE);
+    }
+
+    private boolean isBinarySearchTree(Node root,int min,int max){
+        if(root==null){
+            return true;
+        }
+        if(root.value<min || root.value>max){
+            return  false;
+        }
+
+        return isBinarySearchTree(root.leftchild,min,root.value-1) &&
+                isBinarySearchTree(root.rightchild,root.value+1,max);
+    }
 //            4
 //           / \           left<root<right 4 3 1 8 7 10
 //         3     8
 //        /     / \
 //       1    7   10
 //                  \
-//                   12         height = 1 + max(height(left),height(right))
+//                   12
+//
+//  height = 1 + max(height(left),height(right))
 
     public  int height(){
         return height(root);

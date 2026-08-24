@@ -233,4 +233,13 @@ public class Tree {
 
    }
 
+   public void traverseLevelOrder(){
+        for (int i=0;i<=height(root);i++){
+            for(var value:getNodesAtDistance(i))
+                System.out.println(value);
+
+        }
+
+   }
+
 }

@@ -1,13 +1,15 @@
 package trees.binarytree;
 
+import java.util.ArrayList;
+
 public class Tree {
 
     Node root;
 
     private class Node {
         int value;
-        Node leftchild;
-        Node rightchild;
+        Node leftChild;
+        Node rightChild;
 
         public Node(int value) {
             this.value = value;
@@ -35,9 +37,9 @@ public class Tree {
         if(root == null){
             return;
         }
-        traverseInOrder(root.leftchild);
+        traverseInOrder(root.leftChild);
         System.out.println(root.value);
-        traverseInOrder(root.rightchild);
+        traverseInOrder(root.rightChild);
 
 
     }
@@ -53,18 +55,41 @@ public class Tree {
             return  false;
         }
 
-        return isBinarySearchTree(root.leftchild,min,root.value-1) &&
-                isBinarySearchTree(root.rightchild,root.value+1,max);
+        return isBinarySearchTree(root.leftChild,min,root.value-1) &&
+                isBinarySearchTree(root.rightChild,root.value+1,max);
     }
-//            4
+//            4 ->d3
 //           / \           left<root<right 4 3 1 8 7 10
-//         3     8
+//         3     8 ->d2
 //        /     / \
-//       1    7   10
+//       1    7   10 ->d1 d= distance
 //                  \
-//                   12
+//                   12 ->d0
 //
 //  height = 1 + max(height(left),height(right))
+
+    public ArrayList<Integer> getNodesAtDistance(int distance){
+
+        ArrayList<Integer> list = new ArrayList<>();
+        printNodesAtDistance(root,distance,list);
+        return list;
+    }
+
+    private void printNodesAtDistance(Node root, int distance,ArrayList<Integer> list){
+
+        if (root == null){
+            return;
+        }
+        if(distance==0){
+            list.add(root.value);
+        }
+
+        printNodesAtDistance(root.leftChild,distance-1,list);
+        printNodesAtDistance(root.rightChild,distance-1,list);
+
+
+
+    }
 
     public  int height(){
         return height(root);
@@ -77,7 +102,7 @@ public class Tree {
         if(isLeaf(root)){
             return  0;
         }
-        return 1 + Math.max(height(root.leftchild),height(root.rightchild));
+        return 1 + Math.max(height(root.leftChild),height(root.rightChild));
     }
 
     public int min(){
@@ -90,8 +115,8 @@ public class Tree {
             return Integer.MAX_VALUE;
 
 
-        var leftMin = min(root.leftchild);
-        var rightMin = min(root.rightchild);
+        var leftMin = min(root.leftChild);
+        var rightMin = min(root.rightChild);
         return  Math.min(Math.min(leftMin,rightMin),root.value);
     }
 
@@ -105,8 +130,8 @@ public class Tree {
             throw new IllegalArgumentException("Tree is empty");
 
         Node current = root;
-        while (current.leftchild!=null){
-            current = current.leftchild;
+        while (current.leftChild !=null){
+            current = current.leftChild;
         }
 
         return current.value;
@@ -115,7 +140,7 @@ public class Tree {
     }
 
     private boolean isLeaf(Node node){
-        return node.leftchild == null && node.rightchild == null;
+        return node.leftChild == null && node.rightChild == null;
 
     }
 
@@ -124,8 +149,8 @@ public class Tree {
             return;
         }
         System.out.println(root.value);
-        traversePreOrder(root.leftchild);
-        traversePreOrder(root.rightchild);
+        traversePreOrder(root.leftChild);
+        traversePreOrder(root.rightChild);
 
 
     }
@@ -135,8 +160,8 @@ public class Tree {
             return;
         }
 
-        traversePostOrder(root.leftchild);
-        traversePostOrder(root.rightchild);
+        traversePostOrder(root.leftChild);
+        traversePostOrder(root.rightChild);
         System.out.println(root.value);
 
 
@@ -154,18 +179,18 @@ public class Tree {
         var current = root;
         while(true){
             if (value<current.value){
-                if(current.leftchild == null){
-                    current.leftchild = node;
+                if(current.leftChild == null){
+                    current.leftChild = node;
                     break;
                 }
-                current = current.leftchild;
+                current = current.leftChild;
             }
             else {
-                if(current.rightchild == null){
-                    current.rightchild = node;
+                if(current.rightChild == null){
+                    current.rightChild = node;
                     break;
                 }
-                current = current.rightchild;
+                current = current.rightChild;
             }
         }
     }
@@ -174,9 +199,9 @@ public class Tree {
         var current = root;
         while (current!=null){
             if(value<current.value)
-                current = current.leftchild;
+                current = current.leftChild;
             else if (value> current.value)
-                current = current.rightchild;
+                current = current.rightChild;
             else
                 return true;
             }
@@ -199,8 +224,8 @@ public class Tree {
 
        if(first != null && second !=null){
            return first.value == second.value &&
-                   equals(first.leftchild ,second.leftchild) &&
-                   equals(first.rightchild ,second.rightchild);
+                   equals(first.leftChild,second.leftChild) &&
+                   equals(first.rightChild,second.rightChild);
 
        }
 

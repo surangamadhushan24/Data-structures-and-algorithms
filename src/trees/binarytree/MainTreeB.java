@@ -4,6 +4,9 @@ package trees.binarytree;
 //         3     8
 //        1     7  10
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class MainTreeB {
     public static void main(String[] args) {
         Tree tree = new Tree();
@@ -13,6 +16,8 @@ public class MainTreeB {
         tree.insert(3);
         tree.insert(1);
         tree.insert(10);
+        tree.insert(12);
+
 
         Tree tree1 = new Tree();
         tree1.insert(4);
@@ -23,9 +28,15 @@ public class MainTreeB {
         tree1.insert(10);
 
 
+
         System.out.println(tree1.minBST());
         System.out.println(tree.equals(null));
         System.out.println(tree.isBinarySearchTree());
+        ArrayList<Integer> list = tree.getNodesAtDistance(3);
+        for(int value:list){
+            System.out.println(value);
+        }
+
     }
 
 

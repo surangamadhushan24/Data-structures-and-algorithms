@@ -16,6 +16,7 @@ Top-level notable files and folders:
 - `src/hashtable/` — hashtable examples (`HashTable.java`, `FirstNotRepeatedString.java`).
 - `src/recursion/` — recursion examples (`Recursion.java`).
 - `src/trees/binarytree/` — binary tree examples (`Tree.java`, `MainTreeB.java`).
+- `src/sorting/` — sorting algorithms.
 
 
 

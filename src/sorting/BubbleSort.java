@@ -7,7 +7,6 @@ public class BubbleSort {
         int[] arr = {8,5,6,4,3,5,2};
         // 1 passes {5,6,4,3,5,2,8}
         // 2 passes {5,4,3,5,2,6,8}
-
         bubbleSort(arr);
     }
 
@@ -17,13 +16,10 @@ public class BubbleSort {
 
         for(int j = 0; j <arr.length-1; j++){
             isSorted = true;
-            for(int i=0;i<arr.length-1 -j;i++){
+            for(int i=0;i<arr.length-1;i++){
                 
                 if(arr[i]>arr[i+1]){
-                    
-                    int temp = arr[i];
-                    arr[i] = arr[i+1];
-                    arr[i+1] = temp;
+                    swap(arr,arr[i],arr[i+1] );
                     isSorted = false;
                 }
 
@@ -34,5 +30,11 @@ public class BubbleSort {
         }
 
         System.out.println(Arrays.toString(arr));
+    }
+
+    private static void swap(int[] arr, int index1, int index2){
+        int temp = arr[index1];
+        arr[index1] = arr[index2];
+        arr[index2] = temp;
     }
 }
